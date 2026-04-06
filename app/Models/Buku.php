@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+// use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Buku extends Model
 {
@@ -21,10 +21,7 @@ class Buku extends Model
         'deskripsi',
         'stok',
         'lokasi_rak',
-        'cover_image'
-    ];
-        
-    protected $casts = [
-        'tahun_penerbit' => 'date',
+        'cover_image',
+        'tahun_penerbit'
     ];
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('kode_peminjaman')->unique();
             $table->foreignId('id_siswa')->constrained('siswa')->onDelete('cascade');
             $table->foreignId('id_admin')->constrained('users')->onDelete('cascade');
-            $table->foreignId('id_buku')->constrained('buku')->onDelete('cascade');
+            $table->foreignId('id_buku')->constrained('bukus')->onDelete('cascade');
             $table->date('tanggal_pinjam');
             $table->date('tanggal_kembali')->nullable();
             $table->date('batas_pengembalian');

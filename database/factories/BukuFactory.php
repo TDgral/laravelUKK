@@ -20,15 +20,16 @@ class BukuFactory extends Factory
         return [
             'kode_buku' => 'BK-' . fake()->unique()->numerify('####'),
             'judul' => fake()->sentence(3),
-            'penulis',
-            'penerbit',
-            'kategori',
-            'isbn',
-            'jumlah_halaman',
-            'deskripsi',
-            'stok',
-            'lokasi_rak',
-            'cover_image'
+            'penulis' => fake()->name(),
+            'penerbit' => fake()->company(),
+            'tahun_penerbit' => fake()->date(),
+            'kategori' => fake()->randomElement(['Novel', 'Komik', 'Pelajaran', 'Sains', 'Sejarah']),
+            'isbn' => fake()->isbn13(),
+            'jumlah_halaman' => fake()->numberBetween(80, 500),
+            'deskripsi' => fake()->paragraph(),
+            'stok' => fake()->numberBetween(1, 50),
+            'lokasi_rak' => 'R-' . fake()->randomLetter() . fake()->numberBetween(1, 20),
+            'cover_image' => fake()->imageUrl(),
         ];
     }
 }
