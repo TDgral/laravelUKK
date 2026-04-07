@@ -15,6 +15,7 @@ class Buku extends Model
         'judul',
         'penulis',
         'penerbit',
+        'tahun_terbit',
         'kategori',
         'isbn',
         'jumlah_halaman',
@@ -22,6 +23,9 @@ class Buku extends Model
         'stok',
         'lokasi_rak',
         'cover_image',
-        'tahun_penerbit'
+    ];
+
+    protected $casts = [
+        'tahun_terbit' => 'date',
     ];
 }

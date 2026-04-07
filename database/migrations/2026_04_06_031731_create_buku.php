@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('penerbit');
             $table->date('tahun_terbit')->nullable();
             $table->string('kategori');
-            $table->integer('isbn')->nullable();
+            $table->BigInteger('isbn')->nullable();
             $table->integer('jumlah_halaman');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->integer('stok')->default(0);
             $table->string('lokasi_rak')->nullable();
             $table->string('cover_image')->nullable();
