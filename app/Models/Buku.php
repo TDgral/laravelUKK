@@ -26,7 +26,7 @@ class Buku extends Model
     ];
 
     public function KategoriBuku(): BelongsTo {
-        return $this->BelongsTo(kategoriBuku::class, 'kategori');
+        return $this->BelongsTo(\App\Models\KategoriBuku::class, 'kategori');
     }
 
     protected $casts = [

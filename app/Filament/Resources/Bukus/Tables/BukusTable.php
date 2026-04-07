@@ -29,7 +29,7 @@ class BukusTable
                 TextColumn::make('tahun_terbit')
                     ->date()
                     ->sortable(),
-                TextColumn::make('kategori')
+                TextColumn::make('kategoriBuku.nama_kategori')
                     ->searchable(),
                 TextColumn::make('isbn')
                     ->numeric()

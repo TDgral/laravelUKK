@@ -26,7 +26,9 @@ class BukuForm
                     ->required(),
                 DatePicker::make('tahun_terbit'),
                 TextInput::make('kategori')
-                    ->required(),
+                    ->required()
+                    ->relationship(name: 'KategoriBuku', titleAttribute: 'nama_kategori')
+                    ->label('kategori'),
                 TextInput::make('isbn')
                     ->numeric(),
                 TextInput::make('jumlah_halaman')
