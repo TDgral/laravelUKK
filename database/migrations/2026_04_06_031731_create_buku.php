@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('penulis');
             $table->string('penerbit');
             $table->date('tahun_terbit')->nullable();
-            $table->string('kategori');
+            $table->unsignedBigInteger('kategori')->nullable();
+            $table->engine = 'InnoDB';
             $table->BigInteger('isbn')->nullable();
             $table->integer('jumlah_halaman');
             $table->text('deskripsi');

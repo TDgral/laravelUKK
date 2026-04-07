@@ -23,7 +23,7 @@ class BukuFactory extends Factory
             'penulis' => fake()->name(),
             'penerbit' => fake()->company(),
             'tahun_terbit' => fake()->date(),
-            'kategori' => fake()->randomElement(['Novel', 'Komik', 'Pelajaran', 'Sains', 'Sejarah']),
+            'kategori' => fake()->numberBetween(1, 7),
             'isbn' => fake()->isbn13(),
             'jumlah_halaman' => fake()->numberBetween(80, 500),
             'deskripsi' => fake()->paragraph(),

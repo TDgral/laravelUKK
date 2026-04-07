@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Buku extends Model
 {
@@ -24,6 +24,10 @@ class Buku extends Model
         'lokasi_rak',
         'cover_image',
     ];
+
+    public function KategoriBuku(): BelongsTo {
+        return $this->BelongsTo(kategoriBuku::class, 'kategori');
+    }
 
     protected $casts = [
         'tahun_terbit' => 'date',
