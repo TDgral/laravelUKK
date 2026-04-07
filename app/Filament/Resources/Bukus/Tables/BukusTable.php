@@ -53,9 +53,16 @@ class BukusTable
             ])
             ->filters([
                 SelectFilter::make('status')->multiple()->options([
-                    
-                ])
-            ], layout: FiltersLayout::AboveContent)
+                    'Fiksi' => 'Fiksi',
+                    'Non Fiksi' => 'Non Fiksi',
+                    'Teknologi' => 'Teknologi',
+                    'Sejarah' => 'Sejarah', 
+                    'Pendidikan' => 'Pendidikan', 
+                    'Komik' => 'Komik', 
+                    'Bisnis' => 'Bisnis',
+                    'Agama' => 'Agama'
+            ])
+            ->filtersLayout(FiltersLayout::AboveContent)
             ->recordActions([
                 EditAction::make(),
             ])
@@ -63,6 +70,7 @@ class BukusTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+        ]);
     }
 }
