@@ -21,7 +21,7 @@ return new class extends Migration
             $table->enum('role', ['admin', 'siswa']);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('alamat')->nullable();
-            $table->integer('telepon');
+            $table->string('telepon', 20)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

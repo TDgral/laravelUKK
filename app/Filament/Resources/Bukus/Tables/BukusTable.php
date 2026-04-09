@@ -17,60 +17,36 @@ class BukusTable
     {
         return $table
             ->columns([
-                TextColumn::make('kode_buku')
-                    ->searchable(),
+                TextColumn::make('kode_buku')->searchable(),
                 ImageColumn::make('cover_image'),
-                TextColumn::make('judul')
-                    ->searchable(),
-                TextColumn::make('penulis')
-                    ->searchable(),
-                TextColumn::make('penerbit')
-                    ->searchable(),
-                TextColumn::make('tahun_terbit')
-                    ->date()
-                    ->sortable(),
-                TextColumn::make('kategoriBuku.nama_kategori')
-                    ->searchable(),
-                TextColumn::make('isbn')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('jumlah_halaman')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('stok')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('lokasi_rak')
-                    ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('judul')->searchable(),
+                TextColumn::make('penulis')->searchable(),
+                TextColumn::make('penerbit')->searchable(),
+                TextColumn::make('tahun_terbit')->date()->sortable(),
+                TextColumn::make('kategoriBuku.nama_kategori')->searchable(),
+                TextColumn::make('isbn')->numeric()->sortable(),
+                TextColumn::make('jumlah_halaman')->numeric()->sortable(),
+                TextColumn::make('stok')->numeric()->sortable(),
+                TextColumn::make('lokasi_rak')->searchable(),
+                TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                SelectFilter::make('status')->multiple()->options([
-                    'Fiksi' => 'Fiksi',
-                    'Non Fiksi' => 'Non Fiksi',
-                    'Teknologi' => 'Teknologi',
-                    'Sejarah' => 'Sejarah', 
-                    'Pendidikan' => 'Pendidikan', 
-                    'Komik' => 'Komik', 
-                    'Bisnis' => 'Bisnis',
-                    'Agama' => 'Agama'
+                SelectFilter::make('Kategori')->label('Kategori Buku')->relationship(
+                    name: 'KategoriBuku',
+                    titleAttribute: 'nama_kategori'
+                )
+                ->multiple()
+                ->preload(),
             ])
             ->filtersLayout(FiltersLayout::AboveContent)
             ->recordActions([
                 EditAction::make(),
             ])
-            ->toolbarActions([
+            ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ])
-        ]);
+            ]);
     }
 }

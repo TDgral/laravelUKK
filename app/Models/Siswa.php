@@ -10,8 +10,10 @@ class Siswa extends Model
 {
     use HasFactory;
 
+    protected $table = 'siswa';
+
     protected $fillable = [
-        'id_admin',
+        'user_id',
         'nis',
         'kelas',
         'jurusan',
@@ -23,8 +25,8 @@ class Siswa extends Model
         'tanggal_lahir' => 'date',
     ];
 
-    protected function admin(): BelongsTo {
-        return $this->belongsTo(User::class, 'id_admin');
+    protected function user(): BelongsTo {
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function scopoeAktif($query) {

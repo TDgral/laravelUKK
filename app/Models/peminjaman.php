@@ -10,6 +10,10 @@ class peminjaman extends Model
 {
     use HasFactory;
 
+    protected $table = 'peminjaman';
+
+    protected $guarded = [];
+
     protected $fillable = [
         'kode_peminjaman',
         'status',

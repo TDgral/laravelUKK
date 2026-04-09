@@ -60,4 +60,8 @@ class User extends Authenticatable implements FilamentUser, HasName
     public function getFilamentName(): string {
         return $this->nama_lengkap ?? $this->nama ?? $this->username ?? $this->email ?? 'Admin';
     }
+
+    public function siswa() {
+        return $this->hasOne(Siswa::class);
+    }
 }

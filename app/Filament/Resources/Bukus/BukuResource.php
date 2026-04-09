@@ -22,6 +22,16 @@ class BukuResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'Book';
 
+    public static function getModelLabel(): string {
+        return 'Buku';
+    }
+
+    public static function getModelPluralModelLabel(): string {
+        return 'Buku';
+    }
+
+    protected static ?string $navigationLabel = 'Buku';
+
     public static function form(Schema $schema): Schema
     {
         return BukuForm::configure($schema);

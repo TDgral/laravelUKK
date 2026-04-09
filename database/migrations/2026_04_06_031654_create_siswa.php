@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('siswa', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_admin')->constrained('users')->onDelete('cascade'); // References users(id)
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // References users(id)
             $table->integer('nis')->unique();
             $table->string('kelas');
             $table->string('jurusan')->nullable();

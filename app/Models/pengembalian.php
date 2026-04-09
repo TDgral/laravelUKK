@@ -10,6 +10,8 @@ class pengembalian extends Model
 {
     use HasFactory;
 
+    protected $tabel = 'pengembalian';
+
     protected $fillable = [
         'keterlambatan',
         'denda_bayar',
