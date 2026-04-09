@@ -26,7 +26,7 @@ class Siswa extends Model
     ];
 
     protected function user(): BelongsTo {
-        return $this->belongsTo(User::class, 'id_user');
+        return $this->belongsTo(User::class);
     }
 
     public function scopoeAktif($query) {

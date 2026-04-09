@@ -10,7 +10,9 @@ class pengembalian extends Model
 {
     use HasFactory;
 
-    protected $tabel = 'pengembalian';
+    protected $table = 'pengembalian';
+
+    protected $guarded = [];
 
     protected $fillable = [
         'keterlambatan',

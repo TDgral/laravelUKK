@@ -24,7 +24,7 @@ class BukusTable
                 TextColumn::make('penerbit')->searchable(),
                 TextColumn::make('tahun_terbit')->date()->sortable(),
                 TextColumn::make('kategoriBuku.nama_kategori')->searchable(),
-                TextColumn::make('isbn')->numeric()->sortable(),
+                TextColumn::make('isbn')->sortable(),
                 TextColumn::make('jumlah_halaman')->numeric()->sortable(),
                 TextColumn::make('stok')->numeric()->sortable(),
                 TextColumn::make('lokasi_rak')->searchable(),
@@ -39,6 +39,7 @@ class BukusTable
                 ->multiple()
                 ->preload(),
             ])
+            ->deferFilters(false)
             ->filtersLayout(FiltersLayout::AboveContent)
             ->recordActions([
                 EditAction::make(),

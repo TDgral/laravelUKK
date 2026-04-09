@@ -29,6 +29,7 @@ class KategoriBukusTable
             ->filters([
                 //
             ])
+            ->deferFilters(false)
             ->recordActions([
                 EditAction::make(),
             ])
