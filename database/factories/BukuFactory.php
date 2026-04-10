@@ -29,7 +29,7 @@ class BukuFactory extends Factory
             'deskripsi' => fake()->paragraph(),
             'stok' => fake()->numberBetween(1, 50),
             'lokasi_rak' => 'R-' . fake()->randomLetter() . fake()->numberBetween(1, 20),
-            'cover_image' => fake()->imageUrl(),
+            'cover_image' => 'https://dummyimage.com/400x300/cccccc/000000&text=Cover',
         ];
     }
 }

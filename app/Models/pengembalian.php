@@ -14,19 +14,12 @@ class pengembalian extends Model
 
     protected $guarded = [];
 
-    protected $fillable = [
-        'keterlambatan',
-        'denda_bayar',
-        'kondisi_buku',
-        'catatan'
-    ];
-
     protected $casts = [
         'tanggal_kembali_aktual' => 'date',
     ];
 
     public function peminjaman(): BelongsTo {
-        return $this->BelongsTo(peminjaman::class);
+        return $this->BelongsTo(peminjaman::class, 'peminjaman_id');
     }
 
     public function admin(): BelongsTo {

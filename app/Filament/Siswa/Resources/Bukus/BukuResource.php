@@ -18,6 +18,16 @@ class BukuResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    public static function getPluralModelLabel(): string {
+        return 'Buku';
+    }
+
+    public static function getModelLabel(): string {
+        return 'Buku';
+    }
+
+    protected static ?string $navigationLabel = 'Buku';
+
     protected static ?string $recordTitleAttribute = 'Siswa';
 
     public static function form(Schema $schema): Schema

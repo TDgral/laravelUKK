@@ -6,7 +6,7 @@ use App\Filament\Siswa\Resources\Bukus\BukuResource;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Notifcations\Notification;
 use App\Models\Buku;
-use App\Models\peminjaman;
+use App\Models\Peminjaman;
 
 class ListBukus extends ListRecords
 {
@@ -28,13 +28,12 @@ class ListBukus extends ListRecords
             return;
         }
 
-        peminjaman::create([
+        Peminjaman::create([
             'kode_peminjaman' => 'ABD-' . now()->format('Ymd' . '-' . str()->random(4)),
-            'id_siswa' => $siswa->id,
-            'id_admin' => null,
+            'id_siswa' => auth()->user()->siswa->id,
             'id_buku' => $buku->id,
-            'tanggal_pinjam' => now()->toDateString(),
-            'batas-pengembalian' => now()->addDays(7)->toDateString(),
+            'tanggal_pinjam' => now(),
+            'batas-pengembalian' => now()->addDays(7),
             'status' => 'dipinjam',
             'denda' => 0
         ]);

@@ -16,6 +16,12 @@ class peminjaman extends Model
 
     protected $fillable = [
         'kode_peminjaman',
+        'id_siswa',
+        'id_admin',
+        'id_buku',
+        'tanggal_pinjam',
+        'tanggal_kembali',
+        'batas_pengembalian',
         'status',
         'denda',
         'catatan'
@@ -25,6 +31,7 @@ class peminjaman extends Model
         'tanggal_pinjam' => 'date',
         'tanggal_kembali' => 'date',
         'tanggal_pengembalian' => 'date',
+        'denda' => 'decimal:2'
     ];
 
     protected function admin(): BelongsTo {
@@ -40,6 +47,6 @@ class peminjaman extends Model
     }
 
     protected function pengembalian(): BelongsTo {
-        return $this->BelongsTo(pengembalian::class);
+        return $this->BelongsTo(pengembalian::class, 'peminjaman_id');
     }
 }
