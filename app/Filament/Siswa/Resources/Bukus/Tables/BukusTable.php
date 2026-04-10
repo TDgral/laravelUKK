@@ -5,10 +5,10 @@ namespace App\Filament\Siswa\Resources\Bukus\Tables;
 use App\Models\Peminjaman;
 use Filament\Notifications\Notification;
 use Filament\Tables;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
+use Filament\Actions\Action;
 
 class BukusTable
 {
@@ -25,7 +25,7 @@ class BukusTable
                 'xl' => 4,
             ])
             ->deferLoading()
-            ->paginated([12])
+            ->paginated(12)
             ->filters([
                 //
             ])
@@ -33,7 +33,7 @@ class BukusTable
                 Action::make('pinjam')
                 ->label('Pinjam Buku')
                 ->modalHeading('Peminjaman Buku')
-                ->modalContent(view('filament.siswa.buku.pinjam-modal', ['record' => $this->record]))
+                ->modalContent(fn ($record) => view('filament.siswa.buku.pinjam-modal', ['record' => $record]))
                 ->modalSubmitActionLabel('Lanjutkan Peminjaman')
                 ->action(function ($record) {
                     $siswa = auth()->user()->siswa;
