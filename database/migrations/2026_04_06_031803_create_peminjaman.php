@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('peminjaman', function (Blueprint $table) {
             $table->id();
-            $table->integer('kode_peminjaman')->unique();
+            $table->string('kode_peminjaman')->unique();
             $table->foreignId('id_siswa')->constrained('siswa')->onDelete('cascade');
             $table->foreignId('id_admin')->constrained('users')->onDelete('cascade');
             $table->foreignId('id_buku')->constrained('bukus')->onDelete('cascade');
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('tanggal_kembali')->nullable();
             $table->date('batas_pengembalian');
             $table->enum('status', ['dipinjam', 'dikembalikan', 'terlambat', 'hilang']);
-            $table->decimal('denda');
+            $table->decimal('denda', 10, 2)->default(0);
             $table->text('catatan')->nullable();
             $table->timestamps();
         });

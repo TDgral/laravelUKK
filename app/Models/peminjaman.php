@@ -38,4 +38,8 @@ class peminjaman extends Model
     protected function buku(): BelongsTo {
         return $this->BelongsTo(buku::class, 'id_buku');
     }
+
+    protected function pengembalian(): BelongsTo {
+        return $this->BelongsTo(pengembalian::class);
+    }
 }

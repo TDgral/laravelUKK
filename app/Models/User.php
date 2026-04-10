@@ -54,11 +54,21 @@ class User extends Authenticatable implements FilamentUser, HasName
     }
 
     public function canAccessPanel(\Filament\Panel $panel): bool {
-        return $this->role === 'admin';
+        \Log::info('canAccessPanel', [
+            'user_id' => $this->id,
+            'role' => $this->role,
+            'panel' => $panel->getId()
+        ]);
+    
+        return match ($panel->getId()) {
+            'admin' => $this->role === 'admin',
+            'siswa' => $this->role === 'siswa',
+            default => false
+        };
     }
 
     public function getFilamentName(): string {
-        return $this->nama_lengkap ?? $this->nama ?? $this->username ?? $this->email ?? 'Admin';
+        return $this->nama_lengkap ?? $this->nama ?? $this->username ?? $this->email ?? 'admin';
     }
 
     public function siswa() {

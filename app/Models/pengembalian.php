@@ -26,7 +26,7 @@ class pengembalian extends Model
     ];
 
     public function peminjaman(): BelongsTo {
-        return $this->BelongsTo(peminjaman::class, 'peminjaman_id');
+        return $this->BelongsTo(peminjaman::class);
     }
 
     public function admin(): BelongsTo {
