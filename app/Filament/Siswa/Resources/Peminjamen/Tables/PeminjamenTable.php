@@ -45,7 +45,7 @@ class PeminjamenTable
                         return $keterlambatan > 0 ? $keterlambatan * 5000 : 0;
                     })
                     ->money('IDR')
-                    -badge()
+                    ->badge()
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')
